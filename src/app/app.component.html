@@ -14,6 +14,18 @@
           (ngClass)
         </li>
       </ol>
+      <hr />
+      <button (click)="onToggleDisplayDetails()">{{ buttonLabel }}</button>
+      <div [ngStyle]="{ height: '4rem' }">
+        <p *ngIf="showDetails">Secret Password = tuna</p>
+      </div>
+      <div
+        *ngFor="let logEntry of logEntries; let i = index"
+        [ngStyle]="{ backgroundColor: i >= 4 && 'blue' }"
+        [ngClass]="{ 'white-text': i >= 4 }"
+      >
+        {{ logEntry }}
+      </div>
     </div>
   </div>
 </div>
